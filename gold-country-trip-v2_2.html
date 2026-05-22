@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Country TripTik — Memorial Day 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Josefin+Sans:wght@300;400;600;700&family=Josefin+Slab:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --aaa-red:#B41F2A; --aaa-red-dk:#8A151F; --aaa-red-lt:#D94040;
+  --aaa-blue:#1A3F6F; --aaa-blue-md:#2B5FA0; --aaa-blue-lt:#4A7FC1;
+  --aaa-cream:#F4EDD8; --aaa-cream-dk:#E5D9BE; --aaa-cream-dd:#D4C49A;
+  --aaa-black:#1A1410; --aaa-gray:#6B6358; --aaa-gray-lt:#9B9080;
+  --mustard:#C8900A; --mustard-lt:#E0AD2A; --green:#2E6B3E; --off-wht:#FAF6EC;
+}
+html { scroll-behavior:smooth; }
+body {
+  background:#C8BAA0; font-family:'Josefin Sans',sans-serif; color:var(--aaa-black);
+  display:flex; flex-direction:column; align-items:center; padding:40px 20px; min-height:100vh;
+}
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:9999; opacity:0.045;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:160px 160px;
+}
+.triptik-book { width:100%; max-width:960px; filter:drop-shadow(4px 8px 24px rgba(0,0,0,0.35)) drop-shadow(0 2px 4px rgba(0,0,0,0.2)); }
+
+/* BINDING */
+.binding-strip { background:var(--aaa-blue); height:36px; display:flex; align-items:center; justify-content:space-between; padding:0 20px; }
+.binding-holes { display:flex; gap:18px; align-items:center; flex:1; justify-content:center; }
+.binding-hole { width:16px; height:16px; border-radius:50%; background:#C8BAA0; border:2px solid rgba(0,0,0,0.3); box-shadow:inset 0 1px 3px rgba(0,0,0,0.4); flex-shrink:0; }
+.binding-text { font-family:'Josefin Sans',sans-serif; font-size:8px; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap; }
+
+/* COVER */
+.cover { background:var(--aaa-cream); border-left:6px solid var(--aaa-blue); border-right:6px solid var(--aaa-blue); position:relative; overflow:hidden; }
+.cover::after { content:''; position:absolute; right:-3px; top:0; bottom:0; width:6px; background:repeating-linear-gradient(180deg,transparent 0,transparent 12px,var(--aaa-blue) 12px,var(--aaa-blue) 14px); }
+.cover-red-band { background:var(--aaa-red); padding:20px 32px 18px; display:flex; align-items:center; justify-content:space-between; }
+.aaa-diamond { width:52px; height:52px; background:white; transform:rotate(45deg); display:flex; align-items:center; justify-content:center; }
+.aaa-diamond-inner { transform:rotate(-45deg); font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--aaa-red); letter-spacing:0.1em; line-height:1; }
+.cover-doc-num { font-family:'Special Elite',monospace; font-size:11px; color:rgba(255,255,255,0.6); letter-spacing:0.1em; margin-bottom:4px; }
+.cover-trip-label { font-family:'Bebas Neue',sans-serif; font-size:28px; color:white; letter-spacing:0.12em; line-height:1; }
+.cover-trip-sub { font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.6); margin-top:2px; }
+.cover-map-zone { padding:28px 32px 24px; background:var(--aaa-cream); border-bottom:2px solid var(--aaa-cream-dk); }
+.cover-route-label { font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.45em; text-transform:uppercase; color:var(--aaa-gray); margin-bottom:16px; display:flex; align-items:center; gap:12px; }
+.cover-route-label::after { content:''; flex:1; height:1px; background:var(--aaa-cream-dd); }
+.shield-row { display:flex; gap:8px; margin:20px 0 8px; flex-wrap:wrap; }
+.shield { display:flex; flex-direction:column; align-items:center; gap:1px; }
+.shield-ca { background:var(--aaa-blue); clip-path:polygon(0 0,100% 0,100% 70%,50% 100%,0 70%); padding:4px 8px 10px; min-width:32px; }
+.shield-i { background:var(--aaa-blue); border:3px solid var(--aaa-red); border-radius:6px; padding:3px 8px; min-width:32px; }
+.shield-num { font-family:'Bebas Neue',sans-serif; font-size:14px; color:white; line-height:1; display:block; text-align:center; }
+.shield-label { font-family:'Josefin Sans',sans-serif; font-size:7px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--aaa-gray); text-align:center; }
+.strip-map { position:relative; padding:24px 0 8px; }
+.strip-map-road { position:absolute; top:50%; left:0; right:0; height:6px; background:var(--aaa-blue); transform:translateY(-50%); margin-top:8px; }
+.strip-map-road::before { content:''; position:absolute; inset:2px; background:white; }
+.strip-map-nodes { display:flex; justify-content:space-between; align-items:flex-start; position:relative; z-index:1; }
+.map-node { display:flex; flex-direction:column; align-items:center; gap:6px; }
+.map-node-dot { width:14px; height:14px; border-radius:50%; background:var(--aaa-red); border:2px solid white; box-shadow:0 0 0 2px var(--aaa-red); margin-top:20px; flex-shrink:0; }
+.map-node-dot.home { background:var(--aaa-blue); box-shadow:0 0 0 2px var(--aaa-blue); width:18px; height:18px; }
+.map-node-name { font-family:'Josefin Sans',sans-serif; font-size:8px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--aaa-black); text-align:center; max-width:60px; line-height:1.3; margin-top:4px; }
+.map-node-day { font-family:'Special Elite',monospace; font-size:8px; color:var(--aaa-red); text-align:center; }
+.cover-info-grid { display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--aaa-cream-dk); }
+.cover-info-cell { padding:14px 20px; border-right:1px solid var(--aaa-cream-dk); }
+.cover-info-cell:last-child { border-right:none; }
+.info-label { font-family:'Josefin Sans',sans-serif; font-size:8px; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:var(--aaa-gray); margin-bottom:4px; }
+.info-value { font-family:'Bebas Neue',sans-serif; font-size:20px; color:var(--aaa-blue); letter-spacing:0.04em; line-height:1; }
+.info-sub { font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:300; color:var(--aaa-gray); margin-top:2px; }
+.cover-footer { background:var(--aaa-blue); padding:16px 32px; display:flex; justify-content:space-between; align-items:center; }
+.cover-footer-title { font-family:'Bebas Neue',sans-serif; font-size:32px; color:white; letter-spacing:0.08em; line-height:1; }
+.cover-footer-title span { color:var(--mustard-lt); }
+.cover-footer-date { font-family:'Special Elite',monospace; font-size:12px; color:rgba(255,255,255,0.7); letter-spacing:0.05em; }
+.cover-footer-travelers { font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-top:4px; }
+
+/* PAGE TEAR */
+.page-tear { position:relative; height:10px; background:#B0A088; display:flex; align-items:center; overflow:visible; z-index:20; flex-shrink:0; }
+.page-tear::before { content:''; position:absolute; top:-6px; left:0; right:0; height:7px; background:repeating-linear-gradient(90deg,#B0A088 0,#B0A088 8px,transparent 8px,transparent 10px); -webkit-mask:repeating-linear-gradient(90deg,transparent 0,transparent 3px,black 3px,black 10px); mask:repeating-linear-gradient(90deg,transparent 0,transparent 3px,black 3px,black 10px); }
+.page-tear::after { content:''; position:absolute; bottom:-6px; left:0; right:0; height:7px; background:repeating-linear-gradient(90deg,#B0A088 0,#B0A088 8px,transparent 8px,transparent 10px); -webkit-mask:repeating-linear-gradient(90deg,transparent 0,transparent 3px,black 3px,black 10px); mask:repeating-linear-gradient(90deg,transparent 0,transparent 3px,black 3px,black 10px); }
+.page-tear-num { margin-left:auto; margin-right:28px; font-family:'Special Elite',monospace; font-size:8px; color:rgba(60,36,21,0.45); letter-spacing:0.2em; text-transform:uppercase; user-select:none; }
+
+/* PAGES */
+.page { background:var(--aaa-cream); border-left:6px solid var(--aaa-blue); border-right:6px solid var(--aaa-blue); border-top:1px solid var(--aaa-cream-dk); position:relative; overflow:hidden; }
+.page::after { content:''; position:absolute; right:-3px; top:0; bottom:0; width:6px; background:repeating-linear-gradient(180deg,transparent 0,transparent 12px,var(--aaa-blue) 12px,var(--aaa-blue) 14px); }
+.page-header { background:var(--aaa-blue); padding:10px 24px; display:flex; align-items:center; justify-content:space-between; }
+.page-header-title { font-family:'Bebas Neue',sans-serif; font-size:18px; color:white; letter-spacing:0.12em; }
+.page-header-num { font-family:'Special Elite',monospace; font-size:10px; color:rgba(255,255,255,0.5); letter-spacing:0.15em; }
+.weather-grid { display:grid; grid-template-columns:1fr 1fr 1fr; border-bottom:1px solid var(--aaa-cream-dk); }
+.weather-cell { padding:20px 24px; border-right:1px solid var(--aaa-cream-dk); position:relative; }
+.weather-cell:last-child { border-right:none; }
+.weather-cell-day { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--aaa-red); letter-spacing:0.08em; margin-bottom:4px; }
+.weather-cell-date { font-family:'Special Elite',monospace; font-size:9px; color:var(--aaa-gray); margin-bottom:10px; }
+.weather-cell-temp { font-family:'Bebas Neue',sans-serif; font-size:48px; color:var(--aaa-blue); line-height:1; }
+.weather-cell-unit { font-family:'Josefin Sans',sans-serif; font-size:14px; font-weight:300; color:var(--aaa-gray); vertical-align:super; }
+.weather-cell-cond { font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--aaa-gray); margin-top:6px; }
+.weather-cell-icon { position:absolute; top:20px; right:20px; font-size:28px; opacity:0.7; }
+.weather-note { padding:12px 24px; background:rgba(26,63,111,0.05); border-top:1px solid var(--aaa-cream-dk); font-family:'Special Elite',monospace; font-size:10px; color:var(--aaa-gray); letter-spacing:0.03em; }
+.weather-note strong { color:var(--aaa-blue); }
+
+/* DAY PAGES */
+.day-page { background:var(--aaa-cream); border-left:6px solid var(--aaa-blue); border-right:6px solid var(--aaa-blue); border-top:2px solid var(--aaa-cream-dk); position:relative; overflow:hidden; }
+.day-page::after { content:''; position:absolute; right:-3px; top:0; bottom:0; width:6px; background:repeating-linear-gradient(180deg,transparent 0,transparent 12px,var(--aaa-blue) 12px,var(--aaa-blue) 14px); }
+.day-page-header { display:grid; grid-template-columns:72px 1fr auto; align-items:stretch; border-bottom:2px solid var(--aaa-black); }
+.day-tab { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:16px 8px; border-right:2px solid var(--aaa-black); }
+.day-tab.fri { background:var(--aaa-red); }
+.day-tab.sat { background:var(--aaa-blue); }
+.day-tab.sun { background:var(--green); }
+.day-tab-num { font-family:'Bebas Neue',sans-serif; font-size:36px; color:white; line-height:1; }
+.day-tab-word { font-family:'Josefin Sans',sans-serif; font-size:8px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:rgba(255,255,255,0.65); margin-top:2px; }
+.day-tab-weather { font-family:'Special Elite',monospace; font-size:9px; color:rgba(255,255,255,0.8); margin-top:6px; text-align:center; }
+.day-title-area { padding:14px 20px; display:flex; flex-direction:column; justify-content:center; }
+.day-page-kicker { font-family:'Josefin Sans',sans-serif; font-size:8px; font-weight:700; letter-spacing:0.45em; text-transform:uppercase; color:var(--aaa-gray); margin-bottom:4px; }
+.day-page-title { font-family:'Bebas Neue',sans-serif; font-size:32px; color:var(--aaa-black); letter-spacing:0.04em; line-height:1; }
+.day-tab.fri ~ .day-title-area .day-page-title span { color:var(--aaa-red); }
+.day-tab.sat ~ .day-title-area .day-page-title span { color:var(--aaa-blue); }
+.day-tab.sun ~ .day-title-area .day-page-title span { color:var(--green); }
+.day-page-desc { font-family:'Josefin Slab',serif; font-size:11px; font-weight:300; line-height:1.6; color:var(--aaa-gray); margin-top:5px; max-width:420px; }
+.day-mileage-box { border-left:1px solid var(--aaa-cream-dk); padding:14px 16px; display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:80px; background:var(--off-wht); }
+.mileage-num { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--aaa-black); line-height:1; }
+.mileage-label { font-family:'Josefin Sans',sans-serif; font-size:7px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--aaa-gray); margin-top:2px; text-align:center; }
+
+/* STOPS */
+.stop-list { padding:0; }
+.stop-entry { display:grid; grid-template-columns:56px 20px 1fr; position:relative; border-bottom:1px solid var(--aaa-cream-dk); }
+.stop-entry:last-child { border-bottom:none; }
+.stop-entry.is-drive { opacity:0.55; background:rgba(0,0,0,0.02); }
+.se-time { padding:14px 8px 14px 16px; display:flex; align-items:flex-start; justify-content:flex-end; border-right:1px solid var(--aaa-cream-dk); }
+.se-time-text { font-family:'Special Elite',monospace; font-size:11px; color:var(--aaa-gray); text-align:right; line-height:1.3; }
+.se-time-text.drive-t { font-size:9px; }
+.se-dot-col { display:flex; flex-direction:column; align-items:center; padding-top:18px; position:relative; }
+.stop-entry:not(:last-child):not(.is-drive) .se-dot-col::after { content:''; position:absolute; top:30px; bottom:-1px; width:2px; left:50%; transform:translateX(-50%); background:var(--aaa-cream-dd); }
+.se-dot { width:10px; height:10px; border-radius:50%; background:var(--aaa-cream); border:2px solid var(--aaa-gray); flex-shrink:0; position:relative; z-index:1; }
+.se-dot.red { background:var(--aaa-red); border-color:var(--aaa-red); }
+.se-dot.blue { background:var(--aaa-blue); border-color:var(--aaa-blue); }
+.se-dot.green { background:var(--green); border-color:var(--green); }
+.se-dot.drive-d { width:6px; height:6px; background:var(--aaa-cream-dk); border-color:var(--aaa-gray-lt); }
+.se-content { padding:12px 16px 12px 12px; }
+.se-content.drive-c { display:flex; align-items:center; gap:10px; padding:8px 16px 8px 12px; }
+.se-loc-tag { display:inline-flex; align-items:center; gap:6px; margin-bottom:5px; }
+.loc-flag { width:0; height:0; border-style:solid; border-width:5px 0 5px 8px; flex-shrink:0; }
+.loc-flag.red { border-color:transparent transparent transparent var(--aaa-red); }
+.loc-flag.blue { border-color:transparent transparent transparent var(--aaa-blue); }
+.loc-flag.green { border-color:transparent transparent transparent var(--green); }
+.loc-name-txt { font-family:'Josefin Sans',sans-serif; font-size:8px; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:var(--aaa-gray); }
+.se-stop-name { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--aaa-black); letter-spacing:0.04em; line-height:1; margin-bottom:5px; }
+.se-detail { font-family:'Josefin Slab',serif; font-size:12px; font-weight:300; line-height:1.65; color:#4A3E2E; max-width:520px; margin-bottom:8px; }
+.se-chips { display:flex; flex-wrap:wrap; gap:5px; margin-top:4px; }
+.chip { font-family:'Josefin Sans',sans-serif; font-size:8px; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; padding:3px 10px; border:1.5px solid; }
+.chip-red { color:var(--aaa-red); border-color:var(--aaa-red); }
+.chip-blue { color:var(--aaa-blue); border-color:var(--aaa-blue); }
+.chip-green { color:var(--green); border-color:var(--green); }
+.chip-must { color:var(--mustard); border-color:var(--mustard); }
+.chip-alert { color:var(--aaa-red); border-color:var(--aaa-red); background:rgba(180,31,42,0.07); }
+.drive-strip { display:flex; align-items:center; gap:10px; }
+.drive-arrow-txt { font-family:'Bebas Neue',sans-serif; font-size:14px; color:var(--aaa-gray-lt); letter-spacing:0.05em; }
+.drive-info { font-family:'Special Elite',monospace; font-size:10px; color:var(--aaa-gray); letter-spacing:0.02em; }
+.inline-shields { display:inline-flex; gap:6px; align-items:center; vertical-align:middle; margin-left:8px; }
+.mini-shield-ca { background:var(--aaa-blue); clip-path:polygon(0 0,100% 0,100% 70%,50% 100%,0 70%); padding:2px 5px 7px; font-family:'Bebas Neue',sans-serif; font-size:10px; color:white; min-width:22px; text-align:center; display:inline-block; }
+.mini-shield-us { background:white; border:1.5px solid var(--aaa-black); border-radius:3px 3px 40% 40%/3px 3px 14px 14px; padding:1px 5px 4px; font-family:'Bebas Neue',sans-serif; font-size:10px; color:var(--aaa-black); min-width:22px; text-align:center; display:inline-block; }
+
+/* ESSENTIALS */
+.essentials-grid { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--aaa-cream-dk); }
+.essential-cell { padding:20px 24px; border-right:1px solid var(--aaa-cream-dk); border-bottom:1px solid var(--aaa-cream-dk); position:relative; }
+.essential-cell:nth-child(even) { border-right:none; }
+.essential-cell:nth-last-child(-n+2) { border-bottom:none; }
+.essential-stripe { position:absolute; top:0; left:0; width:4px; height:100%; }
+.stripe-red { background:var(--aaa-red); }
+.stripe-blue { background:var(--aaa-blue); }
+.stripe-must { background:var(--mustard); }
+.stripe-green { background:var(--green); }
+.essential-icon { font-size:22px; margin-bottom:8px; }
+.essential-title { font-family:'Bebas Neue',sans-serif; font-size:18px; color:var(--aaa-black); letter-spacing:0.06em; margin-bottom:6px; }
+.essential-text { font-family:'Josefin Slab',serif; font-size:12px; font-weight:300; line-height:1.6; color:var(--aaa-gray); }
+.essential-text strong { color:var(--aaa-red); font-weight:600; }
+
+/* ROUTE PAGE */
+.route-page { background:var(--aaa-blue); border-left:6px solid var(--aaa-blue); border-right:6px solid var(--aaa-blue); border-top:2px solid rgba(255,255,255,0.2); padding:28px 32px; position:relative; overflow:hidden; }
+.route-page-bg { position:absolute; inset:0; pointer-events:none; font-family:'Bebas Neue',sans-serif; font-size:120px; color:rgba(255,255,255,0.04); white-space:nowrap; letter-spacing:0.08em; display:flex; align-items:center; justify-content:center; }
+.route-page-label { font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.45em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:20px; display:flex; align-items:center; gap:12px; position:relative; z-index:2; }
+.route-page-label::after { content:''; flex:1; height:1px; background:rgba(255,255,255,0.15); }
+.route-nodes { display:flex; align-items:flex-start; justify-content:space-between; position:relative; z-index:2; }
+.route-nodes::before { content:''; position:absolute; top:24px; left:24px; right:24px; height:3px; background:rgba(255,255,255,0.2); }
+.route-node-v2 { display:flex; flex-direction:column; align-items:center; gap:8px; position:relative; z-index:1; }
+.rn-dot { width:12px; height:12px; border-radius:50%; background:var(--mustard-lt); border:2px solid white; box-shadow:0 0 0 2px rgba(255,255,255,0.3); }
+.rn-dot.home-dot { background:white; width:16px; height:16px; }
+.rn-name { font-family:'Bebas Neue',sans-serif; font-size:13px; color:white; letter-spacing:0.06em; text-align:center; line-height:1.1; }
+.rn-sub { font-family:'Special Elite',monospace; font-size:8px; color:rgba(255,255,255,0.45); text-align:center; }
+.route-totals { display:flex; gap:0; margin-top:28px; border:1px solid rgba(255,255,255,0.15); position:relative; z-index:2; }
+.route-total-cell { flex:1; padding:12px 16px; border-right:1px solid rgba(255,255,255,0.12); text-align:center; }
+.route-total-cell:last-child { border-right:none; }
+.rt-num { font-family:'Bebas Neue',sans-serif; font-size:28px; color:var(--mustard-lt); line-height:1; }
+.rt-label { font-family:'Josefin Sans',sans-serif; font-size:8px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-top:3px; }
+
+/* BACK COVER */
+.back-cover { background:var(--aaa-red-dk); border-left:6px solid var(--aaa-blue); border-right:6px solid var(--aaa-blue); padding:32px; display:grid; grid-template-columns:1fr auto; align-items:end; gap:32px; position:relative; overflow:hidden; }
+.back-quote { font-family:'Josefin Slab',serif; font-size:20px; font-style:italic; font-weight:300; line-height:1.4; color:rgba(255,255,255,0.85); max-width:380px; margin-bottom:16px; }
+.back-attr { font-family:'Special Elite',monospace; font-size:10px; color:rgba(255,255,255,0.45); letter-spacing:0.08em; }
+.back-aaa { font-family:'Bebas Neue',sans-serif; font-size:48px; color:rgba(255,255,255,0.15); letter-spacing:0.1em; line-height:1; }
+.back-triptik { font-family:'Josefin Sans',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.35em; text-transform:uppercase; color:rgba(255,255,255,0.25); }
+.binding-strip-bottom { background:var(--aaa-blue); height:10px; width:100%; }
+
+@page { margin:0; }
+@media (max-width:600px) {
+  .day-page-header { grid-template-columns:56px 1fr; }
+  .day-mileage-box { display:none; }
+  .strip-map-nodes { gap:4px; }
+  .map-node-name { font-size:7px; max-width:44px; }
+  .cover-info-grid { grid-template-columns:1fr 1fr; }
+  .cover-info-cell:last-child { display:none; }
+  .essentials-grid { grid-template-columns:1fr; }
+  .route-nodes { flex-wrap:wrap; gap:16px; justify-content:center; }
+  .route-nodes::before { display:none; }
+  .back-cover { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+<div class="triptik-book">
+
+  <!-- BINDING -->
+  <div class="binding-strip">
+    <span class="binding-text">AAA</span>
+    <div class="binding-holes"><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div><div class="binding-hole"></div></div>
+    <span class="binding-text">TRIPTIK®</span>
+  </div>
+
+  <!-- ══ COVER ══ -->
+  <div class="cover">
+    <div class="cover-red-band">
+      <div class="aaa-diamond"><div class="aaa-diamond-inner">AAA</div></div>
+      <div style="flex:1;padding:0 24px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:white;letter-spacing:0.06em;line-height:1;">TRIPTIK<span style="color:var(--mustard-lt);">®</span></div>
+        <div style="font-family:'Josefin Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.5);">Motor Club Travel Guide</div>
+      </div>
+      <div><div class="cover-doc-num">DOC NO. MDW-2026-GC</div><div class="cover-trip-label">GOLD<br>COUNTRY</div><div class="cover-trip-sub">California · Mother Lode</div></div>
+    </div>
+    <div class="cover-map-zone">
+      <div class="cover-route-label">Route Overview</div>
+      <div class="shield-row">
+        <div class="shield"><div class="shield-i"><span class="shield-num">880</span></div><div class="shield-label">Interstate</div></div>
+        <div class="shield"><div class="shield-i"><span class="shield-num">580</span></div><div class="shield-label">Interstate</div></div>
+        <div class="shield"><div class="shield-ca"><span class="shield-num">120</span></div><div class="shield-label">State Rt.</div></div>
+        <div class="shield"><div class="shield-ca"><span class="shield-num">108</span></div><div class="shield-label">State Rt.</div></div>
+        <div class="shield"><div class="shield-ca"><span class="shield-num">49</span></div><div class="shield-label">Mother Lode</div></div>
+        <div class="shield"><div class="shield-ca"><span class="shield-num">4</span></div><div class="shield-label">State Rt.</div></div>
+      </div>
+      <div class="strip-map">
+        <div class="strip-map-road"></div>
+        <div class="strip-map-nodes">
+          <div class="map-node"><div class="map-node-dot home"></div><div class="map-node-name">SARATOGA</div><div class="map-node-day">Start</div></div>
+          <div class="map-node"><div class="map-node-dot"></div><div class="map-node-name">LONG BARN</div><div class="map-node-day">Base</div></div>
+          <div class="map-node"><div class="map-node-dot"></div><div class="map-node-name">TWAIN HARTE</div><div class="map-node-day">Fri PM</div></div>
+          <div class="map-node"><div class="map-node-dot"></div><div class="map-node-name">COLUMBIA</div><div class="map-node-day">Sat AM</div></div>
+          <div class="map-node"><div class="map-node-dot"></div><div class="map-node-name">SONORA</div><div class="map-node-day">Sat Lunch</div></div>
+          <div class="map-node"><div class="map-node-dot"></div><div class="map-node-name">JAMESTOWN</div><div class="map-node-day">Sat PM</div></div>
+          <div class="map-node"><div class="map-node-dot"></div><div class="map-node-name">MURPHYS</div><div class="map-node-day">Sat Eve</div></div>
+          <div class="map-node"><div class="map-node-dot"></div><div class="map-node-name">VALLECITO</div><div class="map-node-day">Sun PM</div></div>
+          <div class="map-node"><div class="map-node-dot home"></div><div class="map-node-name">SARATOGA</div><div class="map-node-day">Home</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cover-info-grid">
+      <div class="cover-info-cell"><div class="info-label">Departure</div><div class="info-value">FRI<br>1:30P</div><div class="info-sub">May 23, 2026</div></div>
+      <div class="cover-info-cell"><div class="info-label">Return</div><div class="info-value">SUN<br>4:50P</div><div class="info-sub">May 25, 2026</div></div>
+      <div class="cover-info-cell"><div class="info-label">Total Drive</div><div class="info-value">~4.5<br>HRS</div><div class="info-sub">9 towns visited</div></div>
+    </div>
+    <div class="cover-footer">
+      <div><div class="cover-footer-title">GOLD <span>COUNTRY</span></div><div style="font-family:'Josefin Sans',sans-serif;font-size:9px;font-weight:300;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:4px;">California Sierra Nevada Foothills</div></div>
+      <div style="text-align:right;"><div class="cover-footer-date">Memorial Day Weekend · 2026</div><div class="cover-footer-travelers">3 Travelers · Long Barn Lodge</div></div>
+    </div>
+  </div>
+
+  <div class="page-tear"><span class="page-tear-num">pg. 1 of 7</span></div>
+
+  <!-- ══ WEATHER ══ -->
+  <div class="page">
+    <div class="page-header"><div class="page-header-title">WEATHER FORECAST</div><div class="page-header-num">Gold Country Foothills · Elev. ~5,000 ft</div></div>
+    <div class="weather-grid">
+      <div class="weather-cell"><div class="weather-cell-day">FRIDAY</div><div class="weather-cell-date">May 23, 2026</div><div class="weather-cell-icon">☀️</div><div class="weather-cell-temp">85<span class="weather-cell-unit">°F</span></div><div class="weather-cell-cond">Sunny · 0% Precip.</div></div>
+      <div class="weather-cell"><div class="weather-cell-day">SATURDAY</div><div class="weather-cell-date">May 24, 2026</div><div class="weather-cell-icon">☀️</div><div class="weather-cell-temp">81<span class="weather-cell-unit">°F</span></div><div class="weather-cell-cond">Sunny · 0% Precip.</div></div>
+      <div class="weather-cell"><div class="weather-cell-day">SUNDAY</div><div class="weather-cell-date">May 25, 2026</div><div class="weather-cell-icon">⛅</div><div class="weather-cell-temp">78<span class="weather-cell-unit">°F</span></div><div class="weather-cell-cond">Mostly Sunny · 5%</div></div>
+    </div>
+    <div class="weather-note">⚠ Evenings at elevation drop to <strong>55–60°F</strong> — bring a jacket. Sunscreen advised for outdoor activities.</div>
+  </div>
+
+  <div class="page-tear"><span class="page-tear-num">pg. 2 of 7</span></div>
+
+  <!-- ══ FRIDAY ══ -->
+  <div class="day-page">
+    <div class="day-page-header">
+      <div class="day-tab fri"><div class="day-tab-num">01</div><div class="day-tab-word">Friday</div><div class="day-tab-weather">85° ☀</div></div>
+      <div class="day-title-area">
+        <div class="day-page-kicker">Day One · May 23 · Afternoon Departure</div>
+        <div class="day-page-title">DRIVE UP &amp; <span>FIRST NIGHT</span></div>
+        <div class="day-page-desc">Afternoon drive to the Sierra foothills. Check in at Long Barn Lodge, then dinner at The Branch in Twain Harte at 8pm.</div>
+      </div>
+      <div class="day-mileage-box"><div class="mileage-num">121</div><div class="mileage-label">Miles<br>Today</div></div>
+    </div>
+    <div class="stop-list">
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">1:30<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot red"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag red"></div><span class="loc-name-txt">Saratoga, CA · Origin</span></div>
+          <div class="se-stop-name">DEPART HOME</div>
+          <div class="se-detail">I-880 N → I-580 E → CA-120 E → CA-108 E. <span class="inline-shields"><span class="mini-shield-us">880</span><span class="mini-shield-us">580</span><span class="mini-shield-ca">120</span><span class="mini-shield-ca">108</span></span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">115 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">115 miles · 2 hrs 20 min</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">4:00<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot red"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag red"></div><span class="loc-name-txt">Long Barn, CA · Elev. 5,076 ft</span></div>
+          <div class="se-stop-name">CHECK IN — LONG BARN LODGE</div>
+          <div class="se-detail">Base camp for the weekend. Pop. 162, elevation 5,076 ft — cooler and crisper than the Bay. Pool on site. Settle in before dinner.</div>
+          <div class="se-chips"><span class="chip chip-blue">🏨 Weekend Base</span><span class="chip chip-green">Pool On Site</span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">6 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">6 miles · 10 min to Twain Harte</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">8:00<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot red"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag red"></div><span class="loc-name-txt">Twain Harte, CA · Pop. 2,400</span></div>
+          <div class="se-stop-name">DINNER — THE BRANCH</div>
+          <div class="se-detail">Chef Matt Garcia's acclaimed farm-to-table restaurant — 4.9★ on OpenTable. Reservation-only pop-up dining. Book via thebranchtwainharte.com or OpenTable.</div>
+          <div class="se-chips"><span class="chip chip-red">🍽 Friday Dinner · 8pm</span><span class="chip chip-alert">⚑ Reservation Required</span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">6 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">6 miles · 10 min back to lodge</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">~10:00<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag red"></div><span class="loc-name-txt">Long Barn, CA</span></div>
+          <div class="se-stop-name">BACK AT THE LODGE</div>
+          <div class="se-detail">Early night. Saturday is the big day.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-tear"><span class="page-tear-num">pg. 3 of 7</span></div>
+
+  <!-- ══ SATURDAY ══ -->
+  <div class="day-page">
+    <div class="day-page-header">
+      <div class="day-tab sat"><div class="day-tab-num">02</div><div class="day-tab-word">Saturday</div><div class="day-tab-weather">81° ☀</div></div>
+      <div class="day-title-area">
+        <div class="day-page-kicker">Day Two · May 24 · The Main Event</div>
+        <div class="day-page-title">GOLD RUSH <span>ALL DAY</span></div>
+        <div class="day-page-desc">Columbia → Sonora → Railtown → Murphys. Four towns, each with a purpose. History in the morning, lunch in Sonora, the 3pm train, and an evening in the best town in the Mother Lode.</div>
+      </div>
+      <div class="day-mileage-box"><div class="mileage-num">64</div><div class="mileage-label">Miles<br>Today</div></div>
+    </div>
+    <div class="stop-list">
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">9:35<br>AM</div></div>
+        <div class="se-dot-col"><div class="se-dot blue"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag blue"></div><span class="loc-name-txt">Long Barn, CA</span></div>
+          <div class="se-stop-name">DEPART LODGE</div>
+          <div class="se-detail">Hwy 108 W → Hwy 49 N. 16 miles to Columbia. <span class="inline-shields"><span class="mini-shield-ca">108</span><span class="mini-shield-ca">49</span></span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">16 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">16 miles · 25 min · Hwy 108 W → Hwy 49 N</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">10:00<br>AM</div></div>
+        <div class="se-dot-col"><div class="se-dot blue"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag blue"></div><span class="loc-name-txt">Columbia, CA · Founded 1850 · "Gem of the Southern Mines"</span></div>
+          <div class="se-stop-name">COLUMBIA STATE HISTORIC PARK</div>
+          <div class="se-detail">30 original 1850s brick buildings still in active use. Explore the saloon, stagecoach rides, gold panning at Matelot Gulch, candle dipping, and antique bowling alley. No cars in town. 11am guided tour — arrive at 10am opening to explore first. Free admission. Open daily 10am–5pm.</div>
+          <div class="se-chips"><span class="chip chip-blue">🏛 Historic Park</span><span class="chip chip-red">11am Guided Tour</span><span class="chip chip-red">Stagecoach</span><span class="chip chip-green">Free Admission</span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">8 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">8 miles · 12 min south on Hwy 49 to Sonora</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">12:15<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot blue"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag blue"></div><span class="loc-name-txt">Sonora, CA · Tuolumne County Seat · Est. 1848</span></div>
+          <div class="se-stop-name">LUNCH + SONORA MAIN STREET</div>
+          <div class="se-detail">Relaxed 2-hour lunch and walk on Washington St. Beautiful Victorian architecture, good restaurants with vegetarian options. The county seat has genuine small-city character — not a tourist town.</div>
+          <div class="se-chips"><span class="chip chip-blue">🍽 Lunch</span><span class="chip chip-green">🌿 Veggie Friendly</span><span class="chip chip-blue">Walk Washington St</span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">8 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">8 miles · 15 min south on Hwy 49 to Jamestown</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">2:45<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot blue"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag blue"></div><span class="loc-name-txt">Jamestown, CA · Founded 1848 · Gateway to the Mother Lode</span></div>
+          <div class="se-stop-name">RAILTOWN 1897 STATE HISTORIC PARK</div>
+          <div class="se-detail">Working steam locomotive roundhouse — these engines appeared in Back to the Future Part III, High Noon, and 200+ films. Arrive early to explore the roundhouse, then board the 3pm excursion train (45 min ride). Open daily 9:30am–4:30pm.</div>
+          <div class="se-chips"><span class="chip chip-blue">🚂 3pm Train</span><span class="chip chip-red">Film History</span><span class="chip chip-alert">⚑ Tickets Booked · railtown1897.org</span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">20 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">20 miles · 25 min · Hwy 49 N → Parrotts Ferry Rd to Murphys</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">4:20<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot blue"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag blue"></div><span class="loc-name-txt">Murphys, CA · "Queen of the Sierras" · Founded 1848</span></div>
+          <div class="se-stop-name">MURPHYS MAIN STREET</div>
+          <div class="se-detail">The most polished town in Gold Country. Art galleries, the historic Murphys Hotel bar (1856 — Ulysses S. Grant slept here), tasting rooms, boutiques. A relaxed afternoon before dinner. This is the anchor of the day.</div>
+          <div class="se-chips"><span class="chip chip-blue">🍷 Afternoon Wander</span><span class="chip chip-red">Est. 1848</span><span class="chip chip-must">Murphys Hotel Bar</span></div>
+        </div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">6:30<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot blue"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag blue"></div><span class="loc-name-txt">Murphys, CA</span></div>
+          <div class="se-stop-name">DINNER IN MURPHYS</div>
+          <div class="se-detail">Options: Grounds Restaurant (local favorite, mushroom risotto), Murphys Grille (best veggie variety), Gabby's (Italian/Mexican, most casual). Memorial Day Saturday — book somewhere ahead of time.</div>
+          <div class="se-chips"><span class="chip chip-blue">🍽 Saturday Dinner</span><span class="chip chip-alert">⚑ Book a Reservation Ahead</span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">34 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">34 miles · 45 min · Hwy 4 E → Hwy 108 E back to lodge</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">~9:00<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag blue"></div><span class="loc-name-txt">Long Barn, CA</span></div>
+          <div class="se-stop-name">BACK AT THE LODGE</div>
+          <div class="se-detail">You've earned it. Lazy Sunday tomorrow.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-tear"><span class="page-tear-num">pg. 4 of 7</span></div>
+
+  <!-- ══ SUNDAY ══ -->
+  <div class="day-page">
+    <div class="day-page-header">
+      <div class="day-tab sun"><div class="day-tab-num">03</div><div class="day-tab-word">Sunday</div><div class="day-tab-weather">78° ⛅</div></div>
+      <div class="day-title-area">
+        <div class="day-page-kicker">Day Three · May 25 · Lazy Sunday</div>
+        <div class="day-page-title">BRUNCH, CAVE <span>&amp; HOME</span></div>
+        <div class="day-page-desc">Sleep in. Late brunch near the lodge. Moaning Cavern at 1pm. Then the scenic drive home — back in Saratoga by 5pm.</div>
+      </div>
+      <div class="day-mileage-box"><div class="mileage-num">140</div><div class="mileage-label">Miles<br>Today</div></div>
+    </div>
+    <div class="stop-list">
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">10:30<br>AM</div></div>
+        <div class="se-dot-col"><div class="se-dot green"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag green"></div><span class="loc-name-txt">Twain Harte or Long Barn area</span></div>
+          <div class="se-stop-name">LATE BRUNCH</div>
+          <div class="se-detail">Sleep in and start slow. Grab a late brunch near the lodge — Twain Harte is 6 min away with several spots. No rush. Sunday.</div>
+          <div class="se-chips"><span class="chip chip-green">🥞 Brunch</span><span class="chip chip-green">Lazy Morning</span></div>
+        </div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">12:00<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot green"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag green"></div><span class="loc-name-txt">Long Barn, CA</span></div>
+          <div class="se-stop-name">CHECK OUT — DEPART LODGE</div>
+          <div class="se-detail">Hwy 108 W → Hwy 4 W → Parrotts Ferry Rd. 25 miles to Moaning Cavern. <span class="inline-shields"><span class="mini-shield-ca">108</span><span class="mini-shield-ca">4</span></span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">25 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">25 miles · 35 min · Hwy 108 W → Hwy 4 W → Parrotts Ferry Rd</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">12:35<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot green"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag green"></div><span class="loc-name-txt">Vallecito, CA · Gold Country</span></div>
+          <div class="se-stop-name">MOANING CAVERNS ADVENTURE PARK</div>
+          <div class="se-detail">Arrive early to explore the grounds — gold panning, hatchet throwing, gift shop. Cavern tour at 1pm. Discovered by Gold Rush miners in the 1850s — the main chamber is large enough to fit the Statue of Liberty. Spiral staircase descent. ~1.5 hours.</div>
+          <div class="se-chips"><span class="chip chip-green">🕳 1pm Cavern Tour</span><span class="chip chip-must">Gold Panning</span><span class="chip chip-alert">⚑ Tour Booked · moaningcaverns.com</span></div>
+        </div>
+      </div>
+      <div class="stop-entry is-drive">
+        <div class="se-time"><div class="se-time-text drive-t">115 mi</div></div>
+        <div class="se-dot-col"><div class="se-dot drive-d"></div></div>
+        <div class="se-content drive-c"><div class="drive-strip"><span class="drive-arrow-txt">↓</span><span class="drive-info">~115 miles · ~2 hrs 20 min · Hwy 4 W → CA-120 W → I-580 W → I-880 S home</span></div></div>
+      </div>
+      <div class="stop-entry">
+        <div class="se-time"><div class="se-time-text">~4:50<br>PM</div></div>
+        <div class="se-dot-col"><div class="se-dot green"></div></div>
+        <div class="se-content">
+          <div class="se-loc-tag"><div class="loc-flag green"></div><span class="loc-name-txt">Saratoga, CA · Home</span></div>
+          <div class="se-stop-name">BACK IN SARATOGA</div>
+          <div class="se-detail">Unpacked, full of stories, already planning the next one.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-tear"><span class="page-tear-num">pg. 5 of 7</span></div>
+
+  <!-- ══ ESSENTIALS ══ -->
+  <div class="page">
+    <div class="page-header"><div class="page-header-title">BEFORE YOU LEAVE</div><div class="page-header-num">Reservations &amp; Packing</div></div>
+    <div class="essentials-grid">
+      <div class="essential-cell">
+        <div class="essential-stripe stripe-red"></div>
+        <div class="essential-icon">🍽</div>
+        <div class="essential-title">THE BRANCH — FRIDAY 8PM</div>
+        <div class="essential-text">Reservation-only pop-up dining. Book via <strong>thebranchtwainharte.com</strong> or OpenTable. If May 23rd is unavailable, plan dinner in Sonora instead.</div>
+      </div>
+      <div class="essential-cell">
+        <div class="essential-stripe stripe-blue"></div>
+        <div class="essential-icon">🚂</div>
+        <div class="essential-title">RAILTOWN 3PM TRAIN</div>
+        <div class="essential-text">Saturday 3pm excursion train. <strong>Tickets booked</strong> via railtown1897.org. Arrive by 2:45pm to explore the roundhouse first.</div>
+      </div>
+      <div class="essential-cell">
+        <div class="essential-stripe stripe-must"></div>
+        <div class="essential-icon">🍷</div>
+        <div class="essential-title">MURPHYS SATURDAY DINNER</div>
+        <div class="essential-text">Memorial Day Saturday is the <strong>busiest night of the year</strong> in Murphys. Grounds, Murphys Grille, or Gabby's — book one before you leave home.</div>
+      </div>
+      <div class="essential-cell">
+        <div class="essential-stripe stripe-green"></div>
+        <div class="essential-icon">🕳</div>
+        <div class="essential-title">MOANING CAVERN — SUNDAY 1PM</div>
+        <div class="essential-text">Cavern tour at 1pm. <strong>Booked</strong> via moaningcaverns.com. Arrive by 12:35pm to explore the grounds first.</div>
+      </div>
+    </div>
+    <div class="weather-note">💡 <strong>Pack list:</strong> Jacket for evenings (55–60°F at 5,000 ft) · Sunscreen · Sturdy walking shoes for Columbia · Water bottle · Camera for Main Street towns</div>
+  </div>
+
+  <div class="page-tear"><span class="page-tear-num">pg. 6 of 7</span></div>
+
+  <!-- ══ ROUTE ══ -->
+  <div class="route-page">
+    <div class="route-page-bg">GOLD COUNTRY</div>
+    <div class="route-page-label">Complete Route · 9 Towns · Memorial Day Weekend 2026</div>
+    <div class="route-nodes">
+      <div class="route-node-v2"><div class="rn-dot home-dot"></div><div class="rn-name">SARATOGA</div><div class="rn-sub">Home</div></div>
+      <div class="route-node-v2"><div class="rn-dot"></div><div class="rn-name">LONG<br>BARN</div><div class="rn-sub">Base</div></div>
+      <div class="route-node-v2"><div class="rn-dot"></div><div class="rn-name">TWAIN<br>HARTE</div><div class="rn-sub">Fri PM</div></div>
+      <div class="route-node-v2"><div class="rn-dot"></div><div class="rn-name">COLUMBIA</div><div class="rn-sub">Sat AM</div></div>
+      <div class="route-node-v2"><div class="rn-dot"></div><div class="rn-name">SONORA</div><div class="rn-sub">Sat Lunch</div></div>
+      <div class="route-node-v2"><div class="rn-dot"></div><div class="rn-name">JAMES-<br>TOWN</div><div class="rn-sub">Sat PM</div></div>
+      <div class="route-node-v2"><div class="rn-dot"></div><div class="rn-name">MURPHYS</div><div class="rn-sub">Sat Eve</div></div>
+      <div class="route-node-v2"><div class="rn-dot"></div><div class="rn-name">VALLE-<br>CITO</div><div class="rn-sub">Sun PM</div></div>
+      <div class="route-node-v2"><div class="rn-dot home-dot"></div><div class="rn-name">SARATOGA</div><div class="rn-sub">Home</div></div>
+    </div>
+    <div class="route-totals">
+      <div class="route-total-cell"><div class="rt-num">3</div><div class="rt-label">Days</div></div>
+      <div class="route-total-cell"><div class="rt-num">9</div><div class="rt-label">Towns</div></div>
+      <div class="route-total-cell"><div class="rt-num">~325</div><div class="rt-label">Total Miles</div></div>
+      <div class="route-total-cell"><div class="rt-num">~4.5</div><div class="rt-label">Hrs Driving</div></div>
+      <div class="route-total-cell"><div class="rt-num">82°</div><div class="rt-label">Avg Temp</div></div>
+    </div>
+  </div>
+
+  <div class="page-tear"><span class="page-tear-num">pg. 7 of 7</span></div>
+
+  <!-- ══ BACK COVER ══ -->
+  <div class="back-cover">
+    <div><div class="back-quote">"The mountains are calling,<br>and I must go."</div><div class="back-attr">— John Muir · Sierra Nevada, California</div></div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;"><div class="back-aaa">AAA</div><div class="back-triptik">TripTik® Guide</div></div>
+  </div>
+
+  <div class="binding-strip-bottom"></div>
+</div>
+</body>
+</html>
